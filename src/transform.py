@@ -1,7 +1,6 @@
 import pandas as pd
 
 def transform_data(df):
-
     rename_columns = {
         "SQLDATE": "date",
         "Year": "year",
@@ -28,30 +27,29 @@ def transform_data(df):
         "SOURCEURL": "source_url"
     }
 
-    df.rename(columns=rename_columns, inplace=True)
+    # On travaille sur une copie pour éviter les SettingWithCopyWarning
+    df = df.rename(columns=rename_columns).copy()
 
-    # conversion date
-    df["date"] = pd.to_datetime(df["date"], format="%Y%m%d")
+    # Conversion date int en datetime (format YYYYMMDD)
+    df["date"] = pd.to_datetime(
+        df["date"].astype(str),
+        format="%Y%m%d",
+        errors="coerce"
+    )
 
-    # mois
+    # Ajouter colonne mois (extrait le mois depuis la date)
     df["month_name"] = df["date"].dt.month_name()
 
-    # supprimer colonne inutile
+    # Supprimer colonne inutile
     df.drop(columns=["month_year"], inplace=True)
 
-    # valeurs manquantes
-    cols = [
-        "actor1_name",
-        "actor1_type",
-        "actor2_name",
-        "actor2_type"
-    ]
-
+    # Valeurs manquantes remplacées par "Unknown" 
+    cols = ["actor1_name", "actor1_type", "actor2_name", "actor2_type"]
     df[cols] = df[cols].fillna("Unknown")
 
-    # doublons
+    # Suppression des doublons
     df = df.drop_duplicates()
 
-    print("Nettoyage fait")
+    print("Nettoyage terminée")
 
     return df
