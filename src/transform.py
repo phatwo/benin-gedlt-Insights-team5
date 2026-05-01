@@ -30,16 +30,16 @@ def transform_data(df):
 
     df.rename(columns=rename_columns, inplace=True)
 
-    # conversion date
+    # conversion date en datetime
     df["date"] = pd.to_datetime(df["date"], format="%Y%m%d")
 
-    # mois
+    # Ajouter colonne mois
     df["month_name"] = df["date"].dt.month_name()
 
     # supprimer colonne inutile
     df.drop(columns=["month_year"], inplace=True)
 
-    # valeurs manquantes
+    # valeurs manquantes: remplacer par "Unknown"
     cols = [
         "actor1_name",
         "actor1_type",
