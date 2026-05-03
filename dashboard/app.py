@@ -107,7 +107,7 @@ with st.sidebar:
 # CHARGEMENT
 # ─────────────────────────────────────────────
 try:
-    df = load_data("DANHOMÈ_INTEL_final_clean.csv")
+    df = load_data("data/processed/DANHOMÈ_INTEL_final_clean.csv")
 except FileNotFoundError:
     st.error(f" Fichier introuvable : `{data_path}`  \n"
              "Modifie le chemin dans la sidebar.")
