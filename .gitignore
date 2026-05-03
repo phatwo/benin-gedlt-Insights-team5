@@ -1,9 +1,3 @@
-# Data 
-data/raw/*
-data/processed/*
-!data/*/.gitkeep
-*.db
-
 # Environnement
 .venv/
 venv/
