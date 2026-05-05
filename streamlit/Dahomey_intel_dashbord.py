@@ -1594,8 +1594,8 @@ Ce modèle est un **outil d'aide à la décision**, pas un oracle.
             "Stress sécuritaire (%)": "{:.1f}%",
             "% conflits 7j":       "{:.1f}%",
         })
-        .applymap(style_risque, subset=["Risque de crise (%)"])
-        .applymap(style_gold,   subset=["Score stabilité"])
+        .map(style_risque, subset=["Risque de crise (%)"])
+        .map(style_gold,   subset=["Score stabilité"])
     )
     st.dataframe(styled_table, use_container_width=True, key="df_pred_table")
  
