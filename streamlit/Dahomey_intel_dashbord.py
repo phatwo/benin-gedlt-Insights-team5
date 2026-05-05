@@ -1,7 +1,6 @@
 """
 Dahomey_Intel — Dashboard GDELT 2025
-Streamlit + Plotly — v6 : zero unsafe_allow_html
-Auteur : Groupe 5 — BéninWatch
+Auteur : Groupe 5
 """
 
 import streamlit as st
@@ -524,8 +523,8 @@ elif page == "Evolution dans le temps":
             if val > 10: return "color: #EF9F27"
             return ""
         styled = (disp.style.format("{:.2f}")
-                  .applymap(color_gold, subset=["Score stabilité"])
-                  .applymap(color_conflict, subset=["% Conflits armés"]))
+                  .map(color_gold, subset=["Score stabilité"])
+                  .map(color_conflict, subset=["% Conflits armés"]))
         st.dataframe(styled, use_container_width=True, key="df_1")
 
     st.divider()
@@ -1017,7 +1016,7 @@ elif page == "Carte du Bénin":
               .format({"Score stabilité":"{:.2f}",
                        "% Conflits armés":"{:.1f}%",
                        "Ton médiatique":"{:.2f}"})
-              .applymap(color_gold_map, subset=["Score stabilité"]))
+              .map(color_gold_map, subset=["Score stabilité"]))
     st.dataframe(styled, use_container_width=True, key="df_3")
 
 
@@ -1170,8 +1169,8 @@ elif page == "Qui parle du Bénin ?":
                            "Ton médiatique moyen":"{:.2f}",
                            "% articles très négatifs":"{:.1f}%",
                            "Score stabilité moyen":"{:.2f}"})
-                  .applymap(color_tone, subset=["Ton médiatique moyen"])
-                  .applymap(color_negatif, subset=["% articles très négatifs"]))
+                  .map(color_tone, subset=["Ton médiatique moyen"])
+                  .map(color_negatif, subset=["% articles très négatifs"]))
         st.dataframe(styled, use_container_width=True, key="df_4")
 
         st.divider()
