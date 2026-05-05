@@ -19,7 +19,41 @@ Les décideurs béninois (ministres, journalistes, chercheurs) font face à un a
 Le projet respecte une structure modulaire en trois couches :
 
 ### A. Pipeline de données (Data Engineering)
-*   **Source :** Extraction de 14 897 événements GDELT 2.0 via Google BigQuery en utilisant le code SQL suivant : 
+*   **Source :** Extraction de 14 897 événements GDELT 2.0 via Google BigQuery en utilisant le code SQL suivant :
+  ```sql
+SELECT
+    SQLDATE,
+    YEAR,
+    MonthYear,
+    Actor1Name,
+    Actor1Type1Code,
+    Actor2Name,
+    Actor2Type1Code,
+    EventCode,
+    EventBaseCode,
+    EventRootCode,
+    QuadClass,
+    GoldsteinScale,
+    NumMentions,
+    NumSources,
+    NumArticles,
+    AvgTone,
+    ActionGeo_Type,
+    ActionGeo_FullName,
+    ActionGeo_CountryCode,
+    ActionGeo_ADM1Code,
+    ActionGeo_Lat,
+    ActionGeo_Long,
+    SOURCEURL
+FROM
+    `gdelt-bq.gdeltv2.events`
+WHERE
+    ActionGeo_CountryCode = 'BN' 
+    AND YEAR = 2025
+ORDER BY
+    SQLDATE ASC
+
+```
 
 *   **Purification du Signal :** 
     *   **Désambiguïsation géographique :** Implémentation d'un algorithme de nettoyage contextuel pour éliminer la pollution liée à *Benin City (Nigeria)*, un biais majeur identifié dans les données brutes.
