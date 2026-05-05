@@ -58,18 +58,12 @@ Notre approche initialement basée sur une régression linéaire a évolué fina
 ## 4. Installation et reproductibilité
 Pour répliquer l'environnement de Dahomey Intel : 
 
-4.1. Cloner le dépôt
-```bash
-git clone https://github.com/[votre-compte]/dahomey-intel.git
-cd dahomey-intel
-```
-
-4.2. Installer les dépendances
+*  Cloner le dépôt
+*  Installer les dépendances
 ```bash
 pip install -r requirements.txt
 ```
-
-4.3. Compiler les codes ou lancer le dashboard 
+* Compiler les codes ou lancer le dashboard 
 Le dashboard est déployé et disponible sur le lien https://dahomeyintel.streamlit.app/
 
 ## 5. Membres de l'équipe
