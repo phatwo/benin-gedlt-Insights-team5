@@ -1,0 +1,26 @@
+{
+    "project": "DAHOM\u00c8 Intel",
+    "version": "1.0",
+    "author": "ML Engineer",
+    "features": [
+        "ema_30",
+        "sma_7",
+        "stress_index",
+        "volume_ratio",
+        "score_lag1",
+        "score_lag3",
+        "score_lag7",
+        "tone_ema_7",
+        "tone_stress",
+        "conflict_ratio_7d",
+        "conflict_momentum"
+    ],
+    "threshold_standard": 0.5,
+    "threshold_sensible": 0.35,
+    "performance": {
+        "auc_roc": 0.87,
+        "recall_at_0.5": 0.75,
+        "recall_at_0.35": 0.81
+    },
+    "seuil_anomalie_p20": 49.75651970711949
+}
