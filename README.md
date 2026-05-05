@@ -67,10 +67,10 @@ pip install -r requirements.txt
 Le dashboard est déployé et disponible sur le lien https://dahomeyintel.streamlit.app/
 
 ## 5. Membres de l'équipe
-**Data Engineer :** Fatou Touré
-**Data Analyst :** Peresh CHABI
-**ML Engineer :** Penouel KPATINVO
-**Data Scientist :** Roxane GUEYEP
+* **Data Engineer :** Fatou Touré
+* **Data Analyst :** Peresh CHABI
+* **ML Engineer :** Penouel KPATINVO
+* **Data Scientist :** Roxane GUEYEP
 
 
 
